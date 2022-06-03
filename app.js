@@ -140,7 +140,7 @@ function displayPush(contentItem) {
             <div class="content__info">
               <div class="content__title-wrapper">
                   <a href="#" class="content__title">${content.title}</a>
-                  <span class="content__price">${content.price}</span>
+                  <span class="content__price">$${content.price}</span>
               </div>
               <p class="content__about">
                 ${content.desc}
