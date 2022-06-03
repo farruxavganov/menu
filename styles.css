@@ -1,0 +1,145 @@
+html {
+    box-sizing: border-box;
+}
+*,
+*::before,
+*::after {
+    margin: 0;
+    padding: 0;
+    box-sizing: inherit;
+}
+
+body {
+    font-family: sans-serif;
+    display: inline-block;
+    width: 100%;
+    min-width: 100%;
+    height: 100vh;
+    
+    background-color: #f1f5f8;
+}
+
+a {
+    text-decoration: none;
+}
+
+button {
+    outline: 0;
+    border: 0;
+    background-color: transparent;
+}
+
+.main {
+    width: 100%;
+    height: auto;
+}
+
+.container {
+    width: 90%;
+    max-width: 1400px;
+    margin: 0 auto;
+    margin-top: 50px;
+}
+.control {
+    width: max-content;
+    margin: 0 auto;
+}
+.control__title {
+    position: relative;
+    font-size: 2.2rem;
+    padding-bottom: 15px;
+    text-align: center;
+}
+.control__title::after {
+    position: absolute;
+    bottom: 0;
+    left: 50%;
+    transform: translateX(-50%);
+    content: "";
+    width: 100px;
+    height: 7px;
+    border-radius: 5px;
+    background-color: darksalmon;
+}
+
+.control__menu {
+    margin-top: 25px;
+}
+
+.control__btn {
+    display: inline-block;
+    padding: 8px;
+    text-transform: capitalize;
+    border: 2px solid darksalmon;
+    border-radius: 10px;
+    font-size: 1rem;
+    font-weight: 500;
+    transition: all .5s ease;
+}
+
+.control__btn:hover {
+    cursor: pointer;
+    color: #fff;
+    background-color: darkorange;
+}
+.control__btn:active {
+    transform: scale(.9);
+}
+
+.contents {
+    display: flex;
+    justify-content: flex-start;
+    flex-wrap: wrap;
+    width: 100%;
+}
+.content {
+    width: 50%;
+    flex-shrink: 0;
+}
+.content__wrapper {
+    display: flex;
+    width: 100%;
+    padding: 15px;
+}
+.content__img-box {
+    width: 35%;
+    height: 170px;
+    border: 3px solid darkorange;
+    border-radius: 10px;
+    padding: 1px;
+    flex-shrink: 0;
+    margin-right: 8px;
+}
+.content__img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    border-radius: 10px;
+}
+.content__title-wrapper {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding-bottom: 5px;
+    border-bottom: 1px solid darkorange;
+}
+.content__title {
+    display: inline-block;
+    color: #333;
+    letter-spacing: 1px;
+    font-size: 1.2rem;
+    font-weight: 600;
+}
+.content__price {
+    display: inline-block;
+    color: darkorange;
+    font-size: 1rem;
+    letter-spacing: 1px;
+}
+.content__about {
+    margin-top: 8px;
+    color: #333;
+    font-size: 1rem;
+    letter-spacing: 1px;
+    line-height: 1.5;
+}
