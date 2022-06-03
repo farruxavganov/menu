@@ -143,3 +143,16 @@ button {
     letter-spacing: 1px;
     line-height: 1.5;
 }
+@media (max-width: 992px) {
+    .content__wrapper {
+        flex-direction: column;
+    }
+    .content__img-box {
+        width: 100%;
+    }
+}
+@media (max-width: 526px){
+    .content {
+        width: 100%;
+    }
+}
