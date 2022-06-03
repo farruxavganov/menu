@@ -12,7 +12,7 @@ const menu = [
     title: "diner double",
     category: "lunch",
     price: 13.99,
-    img: "./imgs/coffee.jpg",
+    img: "imgs/coffee.jpg",
     desc: `vaporware iPhone mumblecore selvage raw denim slow-carb leggings gochujang helvetica man braid jianbing. Marfa thundercats `,
   },
   {
@@ -72,3 +72,89 @@ const menu = [
     desc: `skateboard fam synth authentic semiotics. Live-edge lyft af, edison bulb yuccie crucifix microdosing.`,
   },
 ];
+
+const contents = document.querySelector(".contents");
+const controlMenu = document.querySelector(".control__menu");
+
+window.addEventListener("DOMContentLoaded", function (){
+  displayPush(menu);
+  createBtns();
+  filterMenu();
+})
+
+function createBtns () {
+  const categoris = menu.reduce(function(values, item){
+    if(!values.includes(item.category)) {
+      values.push(item.category);
+    }
+
+  return values;
+},["all"]);
+
+const categorisBtn = categoris.map(function(item) {
+  return `
+    <button type="button" class="control__btn" data-id="${item}">
+    ${item}
+    </button>
+  `
+}).join("");
+
+controlMenu.innerHTML = categorisBtn;
+
+}
+
+function filterMenu () {
+  const btns = document.querySelectorAll(".control__btn");
+
+  btns.forEach(function (item) {
+
+    item.addEventListener("click", (e) => {
+
+      let dataResult = e.currentTarget.dataset.id;
+
+      let dataArry = menu.filter(function(obj) {
+
+        if(obj.category == dataResult){
+          return obj;
+        }
+
+     })
+
+      if(dataResult == "all") {
+        displayPush(menu);
+     }else {
+        displayPush(dataArry);
+    }
+  })
+})
+}
+
+function displayPush(contentItem) {
+ let mapContent =  contentItem.map(function(content) {
+    return `
+       <article class="content">
+          <div class="content__wrapper">
+            <div class="content__img-box">
+              <img src="${content.img}" class="content__img" alt="food img">
+            </div>
+            <div class="content__info">
+              <div class="content__title-wrapper">
+                  <a href="#" class="content__title">${content.title}</a>
+                  <span class="content__price">${content.price}</span>
+              </div>
+              <p class="content__about">
+                ${content.desc}
+              </p>
+            </div>
+          </div>
+        </article>
+    `
+  });
+
+ mapContent = mapContent.join("");
+
+contents.innerHTML = mapContent;
+}
+
+
+
